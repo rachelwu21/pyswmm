@@ -77,6 +77,7 @@ class NodeParams(Enum):
     surDepth = 2  # double
     pondedArea = 3  # double
     initDepth = 4  # double
+    surfaceArea = 5  # double
 
 
 class NodeResults(Enum):

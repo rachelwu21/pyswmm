@@ -22,18 +22,13 @@ class Nodes(object):
 
     >>> from pyswmm import Simulation, Nodes
     >>>
-    >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+    >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
     ...     for node in Nodes(sim):
-    ...         print node
     ...         print node.nodeid
     ...
-    >>> <swmm5.Node object at 0x031B0350>
     >>> J1
-    >>> <swmm5.Node object at 0x030693D0>
     >>> J2
-    >>> <swmm5.Node object at 0x031B0350>
     >>> J3
-    >>> <swmm5.Node object at 0x030693D0>
     >>> J0
 
     Iterating over Nodes Object
@@ -133,12 +128,10 @@ class Node(object):
 
     >>> from pyswmm import Simulation, Nodes
     >>>
-    >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+    >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
     ...     j1 = Nodes(sim)["J1"]
-    ...     print j1.invert_el
-    ...     for step in simulation:
-    ...         print j1.depth
-    ... 0.0
+    ...     print(j1)
+    >>> 0.0
     """
 
     def __init__(self, model, nodeid):
@@ -163,7 +156,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.nodeid
         >>> J1
@@ -181,7 +174,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.is_junction()
         >>> True
@@ -199,7 +192,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.is_outfall()
         >>> True
@@ -217,7 +210,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.is_storage()
         >>> True
@@ -235,7 +228,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.is_divider()
         >>> True
@@ -254,7 +247,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.invert_elevation
         >>> 0.1
@@ -263,7 +256,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.invert_elevation
         ...     j1.invert_elevation = 0.2
@@ -292,7 +285,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.full_depth
         >>> 10
@@ -301,7 +294,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.full_depth
         ...     j1.full_depth = 50
@@ -330,7 +323,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.surcharge_depth
         >>> 10
@@ -339,7 +332,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.surcharge_depth
         ...     j1.surcharge_depth = 50
@@ -368,7 +361,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.ponding_area
         >>> 0
@@ -377,7 +370,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.ponding_area
         ...     j1.ponding_area = 50
@@ -395,6 +388,44 @@ class Node(object):
                                  param)
 
     @property
+    def surface_area(self):
+        """
+        Get/set node surface area.
+
+        :return: Parameter Value
+        :rtype: float
+
+        Examples:
+
+        >>> from pyswmm import Simulation, Nodes
+        >>>
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
+        ...     j1 = Nodes(sim)["J1"]
+        ...     print j1.surface_area
+        >>> 0
+
+        Setting the value
+
+        >>> from pyswmm import Simulation, Nodes
+        >>>
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
+        ...     j1 = Nodes(sim)["J1"]
+        ...     print j1.surface_area
+        ...     j1.ponding_area = 1
+        ...     print j1.surface_area
+        >>> 0
+        >>> 1
+        """
+        return self._model.getNodeParam(self._nodeid,
+                                        NodeParams.surfaceArea.value)
+
+    @surface_area.setter
+    def surface_area(self, param):
+        """Set Node Surface Area."""
+        self._model.setNodeParam(self._nodeid, NodeParams.surfaceArea.value,
+                                 param)
+
+    @property
     def initial_depth(self):
         """
         Get/set node initial depth.
@@ -406,7 +437,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.initial_depth
         >>> 0
@@ -415,7 +446,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     print j1.initial_depth
         ...     j1.initial_depth = 1
@@ -447,7 +478,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     for step in sim:
         ...         print j1.total_inflow
@@ -475,7 +506,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     for step in sim:
         ...         print j1.total_outflow
@@ -503,7 +534,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     for step in sim:
         ...         print j1.losses
@@ -531,7 +562,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     for step in sim:
         ...         print j1.volume
@@ -559,7 +590,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     for step in sim:
         ...         print j1.flooding
@@ -587,7 +618,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     for step in sim:
         ...         print j1.depth
@@ -615,7 +646,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     for step in sim:
         ...         print j1.head
@@ -643,7 +674,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     for step in sim:
         ...         print j1.lateral_inflow
@@ -671,7 +702,7 @@ class Node(object):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     for step in sim:
         ...         j1.generated_inflow(9)
@@ -782,7 +813,7 @@ class Outfall(Node):
 
         >>> from pyswmm import Simulation, Nodes
         >>>
-        >>> with Simulation('../test/TestModel1_weirSetting.inp') as sim:
+        >>> with Simulation('tests/data/model_weir_setting.inp') as sim:
         ...     j1 = Nodes(sim)["J1"]
         ...     for step in sim:
         ...         j1.outfall_stage(9)
