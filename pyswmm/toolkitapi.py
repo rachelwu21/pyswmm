@@ -89,6 +89,7 @@ class NodeResults(Enum):
     newDepth = 5  # Current water depth
     newHead = 6  # Current water head
     newLatFlow = 7  # Current Lateral Inflow
+    overlandInflow = 8  # Current coupling Inflow
 
 
 class NodeType(Enum):
@@ -144,6 +145,11 @@ class SubcResults(Enum):
     runon = 3  # Subcatchment Runon
     newRunoff = 4  # Current Runoff
     newSnowDepth = 5  # Current Snow Depth
+
+
+class OverlandParams(Enum):
+    area = 0
+    depth = 1
 
 
 class NodeStats(ctypes.Structure):

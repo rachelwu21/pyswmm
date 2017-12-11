@@ -1523,6 +1523,48 @@ class PySWMM(object):
         errcode = self.SWMMlibobj.swmm_setOutfallStage(index, q)
         self._error_check(errcode)
 
+    # coupling functions
+
+    def setNodeOpening(self, ID, opening_index, opening_type, opening_area,
+                       opening_length, coeff_orifice, coeff_freeweir,
+                       coeff_subweir):
+        """
+        Set a node opening for coupling with an overland model.
+        """
+        node_index = self.getObjectIDIndex(tka.ObjectType.NODE.value, ID)
+        idx = ctypes.c_int(opening_index)
+        oType = ctypes.c_int(opening_type)
+        A = ctypes.c_double(opening_area)
+        l = ctypes.c_double(opening_length)
+        Co = ctypes.c_double(coeff_orifice)
+        Cfw = ctypes.c_double(coeff_freeweir)
+        Csw = ctypes.c_double(coeff_subweir)
+        errcode = self.SWMMlibobj.swmm_setNodeOpening(node_index, idx, oType,
+                                                      A, l, Co, Cfw, Csw)
+        self._error_check(errcode)
+
+    def setOverlandParam(self, ID, parameter, value):
+        """
+        Set an overland model coupling parameter.
+        """
+        node_index = self.getObjectIDIndex(tka.ObjectType.NODE.value, ID)
+        _val = ctypes.c_double(value)
+        param =  ctypes.c_int(parameter)
+        errcode = self.SWMMlibobj.swmm_setOverlandParam(node_index, param, _val)
+        self._error_check(errcode)
+
+    def getOverlandParam(self, ID, parameter):
+        """
+        Get an overland model coupling parameter.
+        """
+        index = self.getObjectIDIndex(tka.ObjectType.NODE.value, ID)
+        param =  ctypes.c_int(parameter)
+        result = ctypes.c_double()
+        errcode = self.SWMMlibobj.swmm_getNodeParam(index, param,
+                                                    ctypes.byref(result))
+        self._error_check(errcode)
+        return result.value
+
 
 if __name__ == '__main__':
     test = PySWMM(

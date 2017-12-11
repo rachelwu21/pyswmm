@@ -9,7 +9,7 @@
 
 # Local imports
 from pyswmm.swmm5 import PYSWMMException
-from pyswmm.toolkitapi import NodeParams, NodeResults, NodeType, ObjectType
+from pyswmm.toolkitapi import NodeParams, NodeResults, NodeType, ObjectType, OverlandParams
 
 
 class Nodes(object):
@@ -141,6 +141,8 @@ class Node(object):
             raise PYSWMMException("ID Not valid")
         self._model = model
         self._nodeid = nodeid
+        # coupling: keep trace of the number of openings
+        self.opening_num = 0
 
     # --- Get Parameters
     # -------------------------------------------------------------------------
@@ -752,6 +754,41 @@ class Node(object):
         :rtype: dict
         """
         return self._model.node_statistics(self.nodeid)
+
+    ###############################
+    # overland coupling functions #
+    ###############################
+
+    @property
+    def coupling_inflow(self):
+        """
+        Get Node Results for coupling Inflow rate.
+
+        If Simulation is not running this method will raise a warning and
+        return 0.
+        """
+        return self._model.getNodeResult(self.nodeid,
+                                         NodeResults.overlandInflow.value)
+
+    @property
+    def coupling_area(self):
+        """Get the surface for coupling of the overland model"""
+        return self._model.getOverlandParam(self.nodeid, OverlandParams.area.value)
+
+    @coupling_area.setter
+    def coupling_area(self, param):
+        """Get the surface for coupling of the overland model"""
+        self._model.setOverlandParam(self.nodeid, OverlandParams.area.value, param)
+
+    def add_opening(self, opening_type, opening_area, opening_length,
+                         coeff_orifice, coeff_freeweir, coeff_subweir):
+        """Add an opening to the node
+        """
+        self._model.setNodeOpening(self.nodeid, self.opening_num,
+                                   opening_type, opening_area, opening_length,
+                                   coeff_orifice, coeff_freeweir, coeff_subweir)
+        self.opening_num += 1
+        return self
 
 
 class Outfall(Node):
