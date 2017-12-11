@@ -833,35 +833,35 @@ class Opening(object):
     def area(self):
         """return the area of the opening
         """
-        self._model.getNodeOpeningParam(self.nodeid, self._id,
+        return self._model.getNodeOpeningParam(self.nodeid, self._id,
                                         OpeningParams.area.value)
 
     @property
     def length(self):
         """return the length of the opening
         """
-        self._model.getNodeOpeningParam(self.nodeid, self._id,
+        return self._model.getNodeOpeningParam(self.nodeid, self._id,
                                         OpeningParams.length.value)
 
     @property
     def orifice_coeff(self):
         """return the orifice coefficient of the opening
         """
-        self._model.getNodeOpeningParam(self.nodeid, self._id,
+        return self._model.getNodeOpeningParam(self.nodeid, self._id,
                                         OpeningParams.orifice_coeff.value)
 
     @property
     def free_weir_coeff(self):
         """return the free weir coefficient of the opening
         """
-        self._model.getNodeOpeningParam(self.nodeid, self._id,
+        return self._model.getNodeOpeningParam(self.nodeid, self._id,
                                         OpeningParams.free_weir_coeff.value)
 
     @property
     def submerged_weir_coeff(self):
         """return the submerged weir coefficient of the opening
         """
-        self._model.getNodeOpeningParam(self.nodeid, self._id,
+        return self._model.getNodeOpeningParam(self.nodeid, self._id,
                                         OpeningParams.submerged_weir_coeff.value)
 
 
