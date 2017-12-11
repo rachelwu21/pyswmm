@@ -94,6 +94,15 @@ class NodeResults(Enum):
     overlandInflow = 8  # Current coupling Inflow
 
 
+class OpeningParams(Enum):
+    type = 0
+    area = 1
+    length = 2
+    orifice_coeff = 3
+    free_weir_coeff = 4
+    submerged_weir_coeff = 5
+
+
 class NodeType(Enum):
     junction = 0  # Junction Type
     outfall = 1  # Outfall Type

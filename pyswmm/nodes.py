@@ -7,9 +7,11 @@
 # -----------------------------------------------------------------------------
 """Nodes module for the pythonic interface to SWMM5."""
 
+import itertools
+
 # Local imports
 from pyswmm.swmm5 import PYSWMMException
-from pyswmm.toolkitapi import NodeParams, NodeResults, NodeType, ObjectType
+from pyswmm.toolkitapi import NodeParams, NodeResults, NodeType, ObjectType, OpeningParams
 
 
 class Nodes(object):
@@ -141,8 +143,6 @@ class Node(object):
             raise PYSWMMException("ID Not valid")
         self._model = model
         self._nodeid = nodeid
-        # coupling: keep trace of the number of openings
-        self.opening_num = 0
 
     # --- Get Parameters
     # -------------------------------------------------------------------------
@@ -795,15 +795,74 @@ class Node(object):
         """Get the surface for coupling of the overland model"""
         self._model.setNodeParam(self.nodeid, NodeParams.overlandDepth.value, param)
 
-    def add_opening(self, opening_type, opening_area, opening_length,
-                         coeff_orifice, coeff_freeweir, coeff_subweir):
-        """Add an opening to the node
+    def create_opening(self, opening_type, opening_area, opening_length,
+                       coeff_orifice, coeff_freeweir, coeff_subweir):
         """
-        self._model.setNodeOpening(self.nodeid, self.opening_num,
+        Add an opening to the node.
+        Return an Opening object.
+        """
+        opening_object = Opening(self, opening_type, opening_area, opening_length,
+                                 coeff_orifice, coeff_freeweir, coeff_subweir)
+        return opening_object
+
+
+class Opening(object):
+    """
+    Node opening object
+    """
+    # Create a unique id for each instance
+    newid = itertools.count()
+
+    def __init__(self, node_object, opening_type, opening_area, opening_length,
+                 coeff_orifice, coeff_freeweir, coeff_subweir):
+        self.nodeid = node_object.nodeid
+        self._model = node_object._model
+        # create a new id
+        self._id = next(self.__class__.newid)
+        # create the C object
+        self._model.setNodeOpening(self.nodeid, self._id,
                                    opening_type, opening_area, opening_length,
                                    coeff_orifice, coeff_freeweir, coeff_subweir)
-        self.opening_num += 1
-        return self
+
+    def __del__(self):
+        """delete the corresponding C opening when deleting the Python object
+        """
+        pass
+
+    @property
+    def area(self):
+        """return the area of the opening
+        """
+        self._model.getNodeOpeningParam(self.nodeid, self._id,
+                                        OpeningParams.area.value)
+
+    @property
+    def length(self):
+        """return the length of the opening
+        """
+        self._model.getNodeOpeningParam(self.nodeid, self._id,
+                                        OpeningParams.length.value)
+
+    @property
+    def orifice_coeff(self):
+        """return the orifice coefficient of the opening
+        """
+        self._model.getNodeOpeningParam(self.nodeid, self._id,
+                                        OpeningParams.orifice_coeff.value)
+
+    @property
+    def free_weir_coeff(self):
+        """return the free weir coefficient of the opening
+        """
+        self._model.getNodeOpeningParam(self.nodeid, self._id,
+                                        OpeningParams.free_weir_coeff.value)
+
+    @property
+    def submerged_weir_coeff(self):
+        """return the submerged weir coefficient of the opening
+        """
+        self._model.getNodeOpeningParam(self.nodeid, self._id,
+                                        OpeningParams.submerged_weir_coeff.value)
 
 
 class Outfall(Node):

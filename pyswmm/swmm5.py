@@ -1543,6 +1543,18 @@ class PySWMM(object):
                                                       A, l, Co, Cfw, Csw)
         self._error_check(errcode)
 
+    def getNodeOpeningParam(self, ID, opening_index, parameter):
+        """get a parameter from a given opening from a given node
+        """
+        node_index = self.getObjectIDIndex(tka.ObjectType.NODE.value, ID)
+        idx = ctypes.c_int(opening_index)
+        param = ctypes.c_int(parameter)
+        value = ctypes.c_double()
+        errcode = self.SWMMlibobj.swmm_getNodeOpeningParam(node_index, idx, param,
+                                                           ctypes.byref(value))
+        self._error_check(errcode)
+        return value.value
+
     def getNodeIsCoupled(self, ID):
         """get a node's coupling status
         """
