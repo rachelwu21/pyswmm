@@ -1543,28 +1543,14 @@ class PySWMM(object):
                                                       A, l, Co, Cfw, Csw)
         self._error_check(errcode)
 
-    def setOverlandParam(self, ID, parameter, value):
-        """
-        Set an overland model coupling parameter.
+    def getNodeIsCoupled(self, ID):
+        """get a node's coupling status
         """
         node_index = self.getObjectIDIndex(tka.ObjectType.NODE.value, ID)
-        _val = ctypes.c_double(value)
-        param =  ctypes.c_int(parameter)
-        errcode = self.SWMMlibobj.swmm_setOverlandParam(node_index, param, _val)
+        iscoupled = ctypes.c_int()
+        errcode = self.SWMMlibobj.swmm_getNodeIsCoupled(node_index, ctypes.byref(iscoupled))
         self._error_check(errcode)
-
-    def getOverlandParam(self, ID, parameter):
-        """
-        Get an overland model coupling parameter.
-        """
-        index = self.getObjectIDIndex(tka.ObjectType.NODE.value, ID)
-        param =  ctypes.c_int(parameter)
-        result = ctypes.c_double()
-        errcode = self.SWMMlibobj.swmm_getNodeParam(index, param,
-                                                    ctypes.byref(result))
-        self._error_check(errcode)
-        return result.value
-
+        return bool(iscoupled.value)
 
 if __name__ == '__main__':
     test = PySWMM(

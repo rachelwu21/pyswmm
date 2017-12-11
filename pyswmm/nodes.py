@@ -9,7 +9,7 @@
 
 # Local imports
 from pyswmm.swmm5 import PYSWMMException
-from pyswmm.toolkitapi import NodeParams, NodeResults, NodeType, ObjectType, OverlandParams
+from pyswmm.toolkitapi import NodeParams, NodeResults, NodeType, ObjectType
 
 
 class Nodes(object):
@@ -760,6 +760,12 @@ class Node(object):
     ###############################
 
     @property
+    def is_coupled(self):
+        """Return the coupling status of a node.
+        """
+        return self._model.getNodeIsCoupled(self.nodeid)
+
+    @property
     def coupling_inflow(self):
         """
         Get Node Results for coupling Inflow rate.
@@ -767,18 +773,27 @@ class Node(object):
         If Simulation is not running this method will raise a warning and
         return 0.
         """
-        return self._model.getNodeResult(self.nodeid,
-                                         NodeResults.overlandInflow.value)
+        return self._model.getNodeResult(self.nodeid, NodeResults.overlandInflow.value)
 
     @property
     def coupling_area(self):
         """Get the surface for coupling of the overland model"""
-        return self._model.getOverlandParam(self.nodeid, OverlandParams.area.value)
+        return self._model.getNodeParam(self.nodeid, NodeParams.couplingArea.value)
 
     @coupling_area.setter
     def coupling_area(self, param):
         """Get the surface for coupling of the overland model"""
-        self._model.setOverlandParam(self.nodeid, OverlandParams.area.value, param)
+        self._model.setNodeParam(self.nodeid, NodeParams.couplingArea.value, param)
+
+    @property
+    def overland_depth(self):
+        """Get the surface for coupling of the overland model"""
+        return self._model.getNodeParam(self.nodeid, NodeParams.overlandDepth.value)
+
+    @overland_depth.setter
+    def overland_depth(self, param):
+        """Get the surface for coupling of the overland model"""
+        self._model.setNodeParam(self.nodeid, NodeParams.overlandDepth.value, param)
 
     def add_opening(self, opening_type, opening_area, opening_length,
                          coeff_orifice, coeff_freeweir, coeff_subweir):

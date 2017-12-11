@@ -77,7 +77,9 @@ class NodeParams(Enum):
     surDepth = 2  # double
     pondedArea = 3  # double
     initDepth = 4  # double
-    surfaceArea = 5  # double
+    surfaceArea = 5  # node surface area
+    couplingArea = 6  # overland model coupling area
+    overlandDepth = 7  # overland model water depth
 
 
 class NodeResults(Enum):
@@ -145,11 +147,6 @@ class SubcResults(Enum):
     runon = 3  # Subcatchment Runon
     newRunoff = 4  # Current Runoff
     newSnowDepth = 5  # Current Snow Depth
-
-
-class OverlandParams(Enum):
-    area = 0
-    depth = 1
 
 
 class NodeStats(ctypes.Structure):
