@@ -103,6 +103,14 @@ class OpeningParams(Enum):
     submerged_weir_coeff = 5
 
 
+class OverlandCouplingType(Enum):
+    no_coupling = 0
+    no_flow = 1
+    orifice = 2
+    free_weir = 3
+    submerged_weir = 4
+
+
 class NodeType(Enum):
     junction = 0  # Junction Type
     outfall = 1  # Outfall Type

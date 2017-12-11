@@ -11,7 +11,8 @@ import itertools
 
 # Local imports
 from pyswmm.swmm5 import PYSWMMException
-from pyswmm.toolkitapi import NodeParams, NodeResults, NodeType, ObjectType, OpeningParams
+from pyswmm.toolkitapi import NodeParams, NodeResults, NodeType, ObjectType
+from pyswmm.toolkitapi import OpeningParams, OverlandCouplingType
 
 
 class Nodes(object):
@@ -830,39 +831,58 @@ class Opening(object):
         pass
 
     @property
+    def type(self):
+        """return the type of the opening
+        """
+        return self._model.getNodeOpeningType(self.nodeid, self._id)
+
+    @property
     def area(self):
         """return the area of the opening
         """
         return self._model.getNodeOpeningParam(self.nodeid, self._id,
-                                        OpeningParams.area.value)
+                                               OpeningParams.area.value)
 
     @property
     def length(self):
         """return the length of the opening
         """
         return self._model.getNodeOpeningParam(self.nodeid, self._id,
-                                        OpeningParams.length.value)
+                                               OpeningParams.length.value)
 
     @property
     def orifice_coeff(self):
         """return the orifice coefficient of the opening
         """
         return self._model.getNodeOpeningParam(self.nodeid, self._id,
-                                        OpeningParams.orifice_coeff.value)
+                                               OpeningParams.orifice_coeff.value)
 
     @property
     def free_weir_coeff(self):
         """return the free weir coefficient of the opening
         """
         return self._model.getNodeOpeningParam(self.nodeid, self._id,
-                                        OpeningParams.free_weir_coeff.value)
+                                               OpeningParams.free_weir_coeff.value)
 
     @property
     def submerged_weir_coeff(self):
         """return the submerged weir coefficient of the opening
         """
         return self._model.getNodeOpeningParam(self.nodeid, self._id,
-                                        OpeningParams.submerged_weir_coeff.value)
+                                               OpeningParams.submerged_weir_coeff.value)
+
+    @property
+    def coupling_type(self):
+        """return the current coupling type of the opening
+        """
+        type_num = self._model.getOpeningCouplingType(self.nodeid, self._id)
+        return OverlandCouplingType(type_num).name
+
+    @property
+    def flow(self):
+        """return the flow entering the drainage by the opening
+        """
+        return self._model.getNodeOpeningFlow(self.nodeid, self._id)
 
 
 class Outfall(Node):

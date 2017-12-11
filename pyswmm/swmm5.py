@@ -1555,6 +1555,39 @@ class PySWMM(object):
         self._error_check(errcode)
         return value.value
 
+    def getNodeOpeningFlow(self, ID, opening_index):
+        """get the inflow from a given opening from a given node
+        """
+        node_index = self.getObjectIDIndex(tka.ObjectType.NODE.value, ID)
+        idx = ctypes.c_int(opening_index)
+        value = ctypes.c_double()
+        errcode = self.SWMMlibobj.swmm_getNodeOpeningFlow(node_index, idx,
+                                                          ctypes.byref(value))
+        self._error_check(errcode)
+        return value.value
+
+    def getNodeOpeningType(self, ID, opening_index):
+        """get the inflow from a given opening from a given node
+        """
+        node_index = self.getObjectIDIndex(tka.ObjectType.NODE.value, ID)
+        idx = ctypes.c_int(opening_index)
+        value = ctypes.c_int()
+        errcode = self.SWMMlibobj.swmm_getNodeOpeningType(node_index, idx,
+                                                          ctypes.byref(value))
+        self._error_check(errcode)
+        return value.value
+
+    def getOpeningCouplingType(self, ID, opening_index):
+        """get the inflow from a given opening from a given node
+        """
+        node_index = self.getObjectIDIndex(tka.ObjectType.NODE.value, ID)
+        idx = ctypes.c_int(opening_index)
+        value = ctypes.c_int()
+        errcode = self.SWMMlibobj.swmm_getOpeningCouplingType(node_index, idx,
+                                                          ctypes.byref(value))
+        self._error_check(errcode)
+        return value.value
+
     def getNodeIsCoupled(self, ID):
         """get a node's coupling status
         """
