@@ -783,17 +783,17 @@ class Node(object):
 
     @coupling_area.setter
     def coupling_area(self, param):
-        """Get the surface for coupling of the overland model"""
+        """Set the surface for coupling of the overland model"""
         self._model.setNodeParam(self.nodeid, NodeParams.couplingArea.value, param)
 
     @property
     def overland_depth(self):
-        """Get the surface for coupling of the overland model"""
+        """Get the water depth in the overland model"""
         return self._model.getNodeParam(self.nodeid, NodeParams.overlandDepth.value)
 
     @overland_depth.setter
     def overland_depth(self, param):
-        """Get the surface for coupling of the overland model"""
+        """Set the water depth in the overland model"""
         self._model.setNodeParam(self.nodeid, NodeParams.overlandDepth.value, param)
 
     def create_opening(self, opening_type, opening_area, opening_length,
@@ -805,6 +805,16 @@ class Node(object):
         opening_object = Opening(self, opening_type, opening_area, opening_length,
                                  coeff_orifice, coeff_freeweir, coeff_subweir)
         return opening_object
+
+    @property
+    def number_of_openings(self):
+        """Get the number of openings that the node has"""
+        return self._model.getOpeningsNum(self.nodeid)
+
+    @property
+    def openings_indices(self):
+        """Get a list of openings indices"""
+        return self._model.getOpeningsIndices(self.nodeid)
 
 
 class Opening(object):

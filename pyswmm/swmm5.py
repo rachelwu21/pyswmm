@@ -1523,7 +1523,9 @@ class PySWMM(object):
         errcode = self.SWMMlibobj.swmm_setOutfallStage(index, q)
         self._error_check(errcode)
 
-    # coupling functions
+    ######################
+    # coupling functions #
+    ######################
 
     def setNodeOpening(self, ID, opening_index, opening_type, opening_area,
                        opening_length, coeff_orifice, coeff_freeweir,
@@ -1596,6 +1598,39 @@ class PySWMM(object):
         errcode = self.SWMMlibobj.swmm_getNodeIsCoupled(node_index, ctypes.byref(iscoupled))
         self._error_check(errcode)
         return bool(iscoupled.value)
+
+    def getOpeningsNum(self, ID):
+        """get a node's number of openings
+        """
+        node_index = self.getObjectIDIndex(tka.ObjectType.NODE.value, ID)
+        num = ctypes.c_int()
+        errcode = self.SWMMlibobj.swmm_getOpeningsNum(node_index, ctypes.byref(num))
+        self._error_check(errcode)
+        return num.value
+
+    def getOpeningsIndices(self, ID):
+        """get indices of openings of a node
+        """
+        node_index = self.getObjectIDIndex(tka.ObjectType.NODE.value, ID)
+        # get the number of openings of the node
+        num = self.getOpeningsNum(ID)
+        # create a pointer to an array of the same size
+        arr = (ctypes.c_int * num)()
+        arr_ptr = ctypes.cast(arr, ctypes.POINTER(ctypes.c_int))
+        # call function
+        errcode = self.SWMMlibobj.swmm_getOpeningsIndices(node_index, num, arr_ptr)
+        self._error_check(errcode)
+        # convert arr to a list
+        return [arr_ptr[i] for i in range(num)]
+
+    def deleteNodeOpening(self, ID, opening_index):
+        """get a node's number of openings
+        """
+        node_index = self.getObjectIDIndex(tka.ObjectType.NODE.value, ID)
+        idx = ctypes.c_int(opening_index)
+        errcode = self.SWMMlibobj.swmm_deleteNodeOpening(node_index, idx)
+        self._error_check(errcode)
+
 
 if __name__ == '__main__':
     test = PySWMM(
