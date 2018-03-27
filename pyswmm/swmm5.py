@@ -152,6 +152,7 @@ class PySWMM(object):
             raise SWMMException(errcode, self._error_message(errcode))
 
         if errcode != 0 and errcode > 103:
+            print errcode
             warnings.warn(self._error_message(errcode))
 
     def swmmExec(self, inpfile=None, rptfile=None, binfile=None):
@@ -1541,6 +1542,9 @@ class PySWMM(object):
         Co = ctypes.c_double(coeff_orifice)
         Cfw = ctypes.c_double(coeff_freeweir)
         Csw = ctypes.c_double(coeff_subweir)
+
+        import pdb
+        pdb.set_trace()
         errcode = self.SWMMlibobj.swmm_setNodeOpening(node_index, idx, oType,
                                                       A, l, Co, Cfw, Csw)
         self._error_check(errcode)
