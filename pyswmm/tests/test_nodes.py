@@ -11,7 +11,7 @@ from pyswmm import Node, Nodes, Simulation
 from pyswmm.swmm5 import PySWMM
 from pyswmm.tests.data import (MODEL_FULL_FEATURES_PATH,
                                MODEL_NODE_INFLOWS_PATH, MODEL_STORAGE_PUMP,
-                               MODEL_WEIR_SETTING_PATH)
+                               MODEL_STORAGE_PUMP_MGD, MODEL_WEIR_SETTING_PATH)
 from pyswmm.utils.fixtures import get_model_files
 import pyswmm.toolkitapi as tka
 
@@ -126,16 +126,16 @@ def test_outfalls_8():
     sim.close()
 
 
-def test_nodes_9():
-    with Simulation(MODEL_WEIR_SETTING_PATH) as sim:
-        J1 = Nodes(sim)["J1"]
+def test_outfalls_8_mgd():
+    sim = Simulation(MODEL_STORAGE_PUMP_MGD)
+    print("\n\n\nOUTFALL\n")
+    outfall = Nodes(sim)["J3"]
 
-        def init_function():
-            J1.initial_depth = 15
-
-        sim.initial_conditions(init_function)
-        for step in sim:
-            pass
+    for ind, step in enumerate(sim):
+        if ind % 1000 == 0:
+            print(outfall.outfall_statistics)
+            print(outfall.cumulative_inflow)
+    sim.close()
 
 
 def test_nodes_10():
