@@ -102,30 +102,42 @@ class PySWMM(object):
     >>> swmm_model.swmm_close()
     """
 
-    def __init__(self, inpfile='', rptfile=None, binfile=None):
+    def __init__(self,
+                 inpfile='',
+                 rptfile=None,
+                 binfile=None,
+                 swmm_lib_path=None):
         """
         Initialize the PySWMM object class.
+
+        User can specified SWMM library path. Uses default lib if
+        not provided.
 
         :param str inpfile: Name of SWMM input file (default '')
         :param str rptfile: Report file to generate (default None)
         :param str binfile: Optional binary output file (default None)
+        :param str swmm_lib_path: SWMM library path (default None).
+
         """
         self.fileLoaded = False
         self.inpfile = inpfile
         self.rptfile = rptfile
         self.binfile = binfile
 
+        if not swmm_lib_path:
+            swmm_lib_path = DLL_SELECTION()
+
         if os.name == 'nt':
             # Windows Support
-            self.SWMMlibobj = ctypes.WinDLL(DLL_SELECTION())
+            self.SWMMlibobj = ctypes.WinDLL(swmm_lib_path)
 
         if sys.platform == 'darwin':
             # Mac Osx Support
-            self.SWMMlibobj = ctypes.cdll.LoadLibrary(DLL_SELECTION())
+            self.SWMMlibobj = ctypes.cdll.LoadLibrary(swmm_lib_path)
 
         if sys.platform.startswith('linux'):
             # Linux Support
-            self.SWMMlibobj = ctypes.CDLL(DLL_SELECTION())
+            self.SWMMlibobj = ctypes.CDLL(swmm_lib_path)
 
     def _error_message(self, errcode):
         """
@@ -190,9 +202,9 @@ class PySWMM(object):
         try:
             self.swmm_run()
             sys.stdout.write("\n... Run Complete")
-        except:
-            PYSWMMException("SWMM Close Failed")
+        except PYSWMMException:
             sys.stdout.write("\n\n... SWMM completed. There are errors.\n")
+            raise (PYSWMMException("SWMM Close Failed"))
 
     def swmm_run(self, inpfile=None, rptfile=None, binfile=None):
         """# TODO:."""
@@ -242,12 +254,14 @@ class PySWMM(object):
                 rptfile = self.rptfile
             else:
                 rptfile = self.inpfile.replace('.inp', '.rpt')
+                self.rptfile = rptfile
 
         if binfile is None:
             if self.binfile != '' and self.binfile is not None:
                 binfile = self.binfile
             else:
                 binfile = self.inpfile.replace('.inp', '.out')
+                self.binfile = binfile
 
         errcode = self.SWMMlibobj.swmm_open(
             ctypes.c_char_p(six.b(inpfile)),
