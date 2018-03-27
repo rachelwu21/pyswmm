@@ -53,13 +53,10 @@ setup(
     author='Bryant E. McDonnell (EmNet LLC)',
     author_email='bemcdonnell@gmail.com',
     install_requires=REQUIREMENTS,
-    packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
+    packages=find_packages(exclude=['contrib', 'docs']),
     package_data={
         '': [
-            'lib/windows/swmm5.dll', 
-            'lib/macos/swmm5.so', 
-            'lib/linux/swmm5.so',
-            'LICENSE.txt',
+            'lib/windows/swmm5.dll', 'lib/linux/swmm5.so', 'LICENSE.txt',
             'AUTHORS', 'tests/data/*.inp', 'tests/*.py'
         ]
     },
@@ -70,7 +67,7 @@ setup(
         "Topic :: Scientific/Engineering",
         "Topic :: Documentation :: Sphinx",
         "Operating System :: Microsoft :: Windows",
-        "Operating System :: MacOS :: MacOS X",
+        "Operating System :: Unix",
         "License :: OSI Approved :: BSD License",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.4",
