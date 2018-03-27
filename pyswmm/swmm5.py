@@ -1557,8 +1557,6 @@ class PySWMM(object):
         Cfw = ctypes.c_double(coeff_freeweir)
         Csw = ctypes.c_double(coeff_subweir)
 
-        import pdb
-        pdb.set_trace()
         errcode = self.SWMMlibobj.swmm_setNodeOpening(node_index, idx, oType,
                                                       A, l, Co, Cfw, Csw)
         self._error_check(errcode)
