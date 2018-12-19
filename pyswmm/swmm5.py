@@ -164,7 +164,7 @@ class PySWMM(object):
             raise SWMMException(errcode, self._error_message(errcode))
 
         if errcode != 0 and errcode > 103:
-            print errcode
+            # This should be raised as an exception especially on Linux
             warnings.warn(self._error_message(errcode))
 
     def swmmExec(self, inpfile=None, rptfile=None, binfile=None):
