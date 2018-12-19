@@ -1,6 +1,16 @@
-from pyswmm import Simulation, Nodes, Links
+"""pyswmm example
 
-import numpy as np
+The purpose of this example is to understand the parameters that at each timestep can 
+* control the pipe network
+* be derived from the pipe network
+
+It is our hope to eventually couple pyswmm with anuga through these parameters to create a better open source 2D urban flood model.
+
+Stephen Roberts, Petar Milevski, Rudy van Drie, Ole Nielsen
+December 2018 
+"""
+
+from pyswmm import Simulation, Nodes, Links
 
 def run_swmm():
 
@@ -16,8 +26,7 @@ def run_swmm():
     nodes = [Nodes(sim)[names] for names in node_names]
     links = [Links(sim)[names] for names in link_names]
     
-
-    nodes[0].nodeid
+ 
     # type, area, length, orifice_coeff, free_weir_coeff, submerged_weir_coeff
     opening0 = nodes[0].create_opening(4, 1.0, 1.0, 0.6, 1.6, 1.0)
 
@@ -33,7 +42,7 @@ def run_swmm():
     nodes[0].overland_depth = 1.0
     nodes[0].coupling_area = 1.0
 
-    # this step_advance should be an integer multiple of the routing step
+    # This step_advance should be an integer multiple of the routing step
     # which is set in the ,inp file. Currently set to 1s.
     # Should be able to interrogate sim to find out what the
     # routing stepsize is. Maybe should issue a warning if
@@ -44,7 +53,7 @@ def run_swmm():
         sim.step_advance(1.0)
 
         if ind == 15:
-            break    # Reduce output
+            break    # Output from first 15 steps in enough
             
         
         print 70 * "="
