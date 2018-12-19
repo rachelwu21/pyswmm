@@ -30,6 +30,7 @@ def run_swmm():
     # type, area, length, orifice_coeff, free_weir_coeff, submerged_weir_coeff
     opening0 = nodes[0].create_opening(4, 1.0, 1.0, 0.6, 1.6, 1.0)
 
+    print
     print "n0 is coupled? ", nodes[0].is_coupled
     print "n1 is coupled? ", nodes[1].is_coupled
 

@@ -1,0 +1,565 @@
+
+ o  Retrieving project data
+n0 is coupled?  True
+n1 is coupled?  False
+======================================================================
+STEP  0
+Current time 2017-03-09 00:00:01
+Elapsed time 1.0
+Advance seconds 1.0
+Opening 0 flow 2.00022272311
+==================================================
+Inlet total_inflow 0.0
+Inlet total_outflow 0.0
+Inlet coupling_inflow 6.72659035733
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 0.0
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 0.0
+Inlet lateral_inflow 0.0
+==================================================
+Outlet total_inflow 0.0
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.0
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.0
+Culvert Area 0.00057912
+Culvert Froude 0.0
+Culvert Depth 3.048e-05
+Culvert Flow limit 10.0
+Culvert volume 4.71554328283e-05
+======================================================================
+STEP  1
+Current time 2017-03-09 00:00:02
+Elapsed time 2.0
+Advance seconds 1.0
+Opening 0 flow 0.0
+==================================================
+Inlet total_inflow 6.72659035733
+Inlet total_outflow 0.018530947071
+Inlet coupling_inflow 0.0
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 2.15
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 3.35402970513
+Inlet lateral_inflow 6.72659035733
+==================================================
+Outlet total_inflow 0.018530947071
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.0819558277446
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.018530947071
+Culvert Area 3.61526004439
+Culvert Froude 0.0
+Culvert Depth 0.19001524
+Culvert Flow limit 10.0
+Culvert volume 2.15508194302
+======================================================================
+STEP  2
+Current time 2017-03-09 00:00:03
+Elapsed time 3.0
+Advance seconds 1.0
+Opening 0 flow 1.00011136155
+==================================================
+Inlet total_inflow 0.0
+Inlet total_outflow 0.126635694251
+Inlet coupling_inflow 5.72647899577
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 1.65036697748
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 0.0
+Inlet lateral_inflow 0.0
+==================================================
+Outlet total_inflow 0.126635694251
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.233730174233
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.126635694251
+Culvert Area 6.37186127522
+Culvert Froude 0.717249722594
+Culvert Depth 0.306253243751
+Culvert Flow limit 10.0
+Culvert volume 3.53692758098
+======================================================================
+STEP  3
+Current time 2017-03-09 00:00:04
+Elapsed time 4.0
+Advance seconds 1.0
+Opening 0 flow 0.0
+==================================================
+Inlet total_inflow 5.72647899577
+Inlet total_outflow 0.177555079667
+Inlet coupling_inflow 0.0
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 2.15
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 2.71114411093
+Inlet lateral_inflow 5.72647899577
+==================================================
+Outlet total_inflow 0.177555079667
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.304155837748
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.177555079667
+Culvert Area 5.61234515642
+Culvert Froude 0.774942239103
+Culvert Depth 0.330118555705
+Culvert Flow limit 10.0
+Culvert volume 3.85861693533
+======================================================================
+STEP  4
+Current time 2017-03-09 00:00:05
+Elapsed time 5.0
+Advance seconds 1.0
+Opening 0 flow 1.00011136155
+==================================================
+Inlet total_inflow 0.0
+Inlet total_outflow 0.202222869356
+Inlet coupling_inflow 5.72647899577
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 1.68736403393
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 0.0
+Inlet lateral_inflow 0.0
+==================================================
+Outlet total_inflow 0.202222869356
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.325316042043
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.202222869356
+Culvert Area 4.14038915401
+Culvert Froude 0.795993364251
+Culvert Depth 0.356117118657
+Culvert Flow limit 10.0
+Culvert volume 4.15320747177
+======================================================================
+STEP  5
+Current time 2017-03-09 00:00:06
+Elapsed time 6.0
+Advance seconds 1.0
+Opening 0 flow 0.0
+==================================================
+Inlet total_inflow 5.72647899577
+Inlet total_outflow 0.233250415705
+Inlet coupling_inflow 0.0
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 2.15
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 2.64550285536
+Inlet lateral_inflow 5.72647899577
+==================================================
+Outlet total_inflow 0.233250415705
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.342224407572
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.233250415705
+Culvert Area 3.86542203696
+Culvert Froude 0.807533674873
+Culvert Depth 0.359449914685
+Culvert Flow limit 10.0
+Culvert volume 4.18388625219
+======================================================================
+STEP  6
+Current time 2017-03-09 00:00:07
+Elapsed time 7.0
+Advance seconds 1.0
+Opening 0 flow 1.00011136155
+==================================================
+Inlet total_inflow 0.0
+Inlet total_outflow 0.232450473297
+Inlet coupling_inflow 5.72647899577
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 1.72249853729
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 0.0
+Inlet lateral_inflow 0.0
+==================================================
+Outlet total_inflow 0.232450473297
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.341847143216
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.232450473297
+Culvert Area 3.47944535303
+Culvert Froude 0.818085722698
+Culvert Depth 0.363664589875
+Culvert Flow limit 10.0
+Culvert volume 4.22014992925
+======================================================================
+STEP  7
+Current time 2017-03-09 00:00:08
+Elapsed time 8.0
+Advance seconds 1.0
+Opening 0 flow 0.0
+==================================================
+Inlet total_inflow 5.72647899577
+Inlet total_outflow 0.25757815546
+Inlet coupling_inflow 0.0
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 2.15
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 2.61822518351
+Inlet lateral_inflow 5.72647899577
+==================================================
+Outlet total_inflow 0.25757815546
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.352001670529
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.25757815546
+Culvert Area 3.34787441327
+Culvert Froude 0.821749646938
+Culvert Depth 0.36519972885
+Culvert Flow limit 10.0
+Culvert volume 4.23245324118
+======================================================================
+STEP  8
+Current time 2017-03-09 00:00:09
+Elapsed time 9.0
+Advance seconds 1.0
+Opening 0 flow 1.00011136155
+==================================================
+Inlet total_inflow 0.0
+Inlet total_outflow 0.250399401636
+Inlet coupling_inflow 5.72647899577
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 1.72601030949
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 0.0
+Inlet lateral_inflow 0.0
+==================================================
+Outlet total_inflow 0.250399401636
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.350017370786
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.250399401636
+Culvert Area 3.25431113295
+Culvert Froude 0.83023248981
+Culvert Depth 0.366641406949
+Culvert Flow limit 10.0
+Culvert volume 4.24311132493
+======================================================================
+STEP  9
+Current time 2017-03-09 00:00:10
+Elapsed time 10.0
+Advance seconds 1.0
+Opening 0 flow 0.0
+==================================================
+Inlet total_inflow 5.72647899577
+Inlet total_outflow 0.271764884486
+Inlet coupling_inflow 0.0
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 2.15
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 2.60215735483
+Inlet lateral_inflow 5.72647899577
+==================================================
+Outlet total_inflow 0.271764884486
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.355923064611
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.271764884486
+Culvert Area 3.21522523482
+Culvert Froude 0.832586077867
+Culvert Depth 0.367265271959
+Culvert Flow limit 10.0
+Culvert volume 4.24762302779
+======================================================================
+STEP  10
+Current time 2017-03-09 00:00:11
+Elapsed time 11.0
+Advance seconds 1.0
+Opening 0 flow 1.00011136155
+==================================================
+Inlet total_inflow 0.0
+Inlet total_outflow 0.261338975819
+Inlet coupling_inflow 5.72647899577
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 1.72379054049
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 0.0
+Inlet lateral_inflow 0.0
+==================================================
+Outlet total_inflow 0.261338975819
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.353041209571
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.261338975819
+Culvert Area 3.15782869186
+Culvert Froude 0.835864508129
+Culvert Depth 0.368143780681
+Culvert Flow limit 10.0
+Culvert volume 4.25414507621
+======================================================================
+STEP  11
+Current time 2017-03-09 00:00:12
+Elapsed time 12.0
+Advance seconds 1.0
+Opening 0 flow 0.0
+==================================================
+Inlet total_inflow 5.72647899577
+Inlet total_outflow 0.280088287416
+Inlet coupling_inflow 0.0
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 2.15
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 2.59252586627
+Inlet lateral_inflow 5.72647899577
+==================================================
+Outlet total_inflow 0.280088287416
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.358223760066
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.280088287416
+Culvert Area 3.14210783288
+Culvert Froude 0.836199704594
+Culvert Depth 0.368403817613
+Culvert Flow limit 10.0
+Culvert volume 4.25598474852
+======================================================================
+STEP  12
+Current time 2017-03-09 00:00:13
+Elapsed time 13.0
+Advance seconds 1.0
+Opening 0 flow 1.00011136155
+==================================================
+Inlet total_inflow 0.0
+Inlet total_outflow 0.267746458966
+Inlet coupling_inflow 5.72647899577
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 1.72248914871
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 0.0
+Inlet lateral_inflow 0.0
+==================================================
+Outlet total_inflow 0.267746458966
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.354812320195
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.267746458966
+Culvert Area 3.09484664372
+Culvert Froude 0.837761112381
+Culvert Depth 0.369023829685
+Culvert Flow limit 10.0
+Culvert volume 4.26013523232
+======================================================================
+STEP  13
+Current time 2017-03-09 00:00:14
+Elapsed time 14.0
+Advance seconds 1.0
+Opening 0 flow 0.0
+==================================================
+Inlet total_inflow 5.72647899577
+Inlet total_outflow 0.284934562015
+Inlet coupling_inflow 0.0
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 2.15
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 2.5868989874
+Inlet lateral_inflow 5.72647899577
+==================================================
+Outlet total_inflow 0.284934562015
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.359563332599
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.284934562015
+Culvert Area 3.09264096922
+Culvert Froude 0.837496609713
+Culvert Depth 0.369067009067
+Culvert Flow limit 10.0
+Culvert volume 4.26035215129
+======================================================================
+STEP  14
+Current time 2017-03-09 00:00:15
+Elapsed time 15.0
+Advance seconds 1.0
+Opening 0 flow 1.00011136155
+==================================================
+Inlet total_inflow 0.0
+Inlet total_outflow 0.271015433354
+Inlet coupling_inflow 5.72647899577
+Inlet coupling_area 1.0
+Inlet overland_depth 1.0
+Inlet number of openings 1
+Inlet depth 1.72177221164
+Inlet volume 0.0
+Inlet surcharge depth 0.15
+Inlet flooding 0.0
+Inlet lateral_inflow 0.0
+==================================================
+Outlet total_inflow 0.271015433354
+Outlet total_outflow 0.0
+Outlet coupling_inflow 0.0
+Outlet coupling_area 0.0
+Outlet overland_depth 0.0
+Outlet number of openings 0
+Outlet depth 0.355715906694
+Outlet volume 0.0
+Outlet surcharge depth 0.0
+Outlet flooding 0.0
+Outlet lateral_inflow 0.0
+==================================================
+Culvert link flow 0.271015433354
+Culvert Area 3.06466208748
+Culvert Froude 0.838251235072
+Culvert Depth 0.369406178868
+Culvert Flow limit 10.0
+Culvert volume 4.2625312934
+======================================================================
+Current Time 2017-03-09 00:00:16
+End time 2017-03-09 00:01:01
+Elapsed time 16.0
+
+ o  Writing output report
