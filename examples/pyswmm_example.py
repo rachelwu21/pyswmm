@@ -2,15 +2,13 @@ from pyswmm import Simulation, Nodes, Links
 
 import numpy as np
 
-from pprint import pprint
-print 'Import OK'
-
 def run_swmm():
+
+    #=======================================
+    # setup all the nodes before starting
+    #=======================================
     
-    import pdb
     sim = Simulation('./swmm_pipe_test.inp')
-    print 'sim'
-    #pprint(dir(sim))
 
     node_names = ['Inlet', 'Outlet']
     link_names = ['Culvert']
@@ -18,27 +16,13 @@ def run_swmm():
     nodes = [Nodes(sim)[names] for names in node_names]
     links = [Links(sim)[names] for names in link_names]
     
-    print 'node'
-    #pprint(dir(nodes[0]))
-       
-    print 'link'
-    #pprint(dir(links[0]))
-    #sim.step_advance()
-
-
-
-    #=======================================
-    # setup all the nodes before starting
-    #=======================================
-    
 
     nodes[0].nodeid
     # type, area, length, orifice_coeff, free_weir_coeff, submerged_weir_coeff
-    openning0 = nodes[0].create_opening(4, 1.0, 1.0, 0.6, 1.6, 1.0)
+    opening0 = nodes[0].create_opening(4, 1.0, 1.0, 0.6, 1.6, 1.0)
 
-    print "n0 Is coupled? ", nodes[0].is_coupled
-    print "n1 Is coupled? ", nodes[1].is_coupled
-
+    print "n0 is coupled? ", nodes[0].is_coupled
+    print "n1 is coupled? ", nodes[1].is_coupled
 
 
     #=======================================
@@ -55,22 +39,23 @@ def run_swmm():
     # routing stepsize is. Maybe should issue a warning if
     # step_advance is set lower than the routing step size.
     # Indeed maybe step_advance should just allow advance n routing steps?
-    #sim.step_advance(1.0) # seconds?
     
-    bucket = np.array([1.0, 0.0])
-   
     for ind, step in enumerate(sim):
         sim.step_advance(1.0)
 
+        if ind == 15:
+            break    # Reduce output
+            
+        
         print 70 * "="
+        print 'STEP ', ind
         
         elapsed_time = (sim.current_time - sim.start_time).total_seconds()
         
-        print 'current Time', sim.current_time
-        print 'elapsed time', elapsed_time
+        print 'Current time', sim.current_time
+        print 'Elapsed time', elapsed_time
         print 'Advance seconds', sim._advance_seconds
-    
-        pprint(openning0.flow)
+        print 'Opening 0 flow:', opening0.flow
         
         for i,j in enumerate(nodes):
             print 50*"="
@@ -87,10 +72,7 @@ def run_swmm():
             print jstr+' surcharge depth', j.surcharge_depth
             print jstr+' flooding' , j.flooding
             print jstr+' lateral_inflow' , j.lateral_inflow
-            
-            
-        
-
+ 
         for i,l in enumerate(links):
             print 50*"="
             lstr = link_names[i]
@@ -101,24 +83,18 @@ def run_swmm():
             print lstr+' Depth ', l.depth
             print lstr+' Flow limit' , l.flow_limit
             print lstr+' volume' , l.volume
-        
-
-
-        #pdb.set_trace()
+ 
       
     print 70 * "="  
-
-    print 'current Time', sim.current_time
-    print 'end time', sim.end_time
-    print 'elapsed time', (sim.current_time - sim.start_time).total_seconds()
-    
+    print 'Current Time', sim.current_time
+    print 'End time', sim.end_time
+    print 'Elapsed time', (sim.current_time - sim.start_time).total_seconds()
     
     sim.report()
     sim.close()
     
     print ''
         
-
 run_swmm()
-#pdb.set_trace()
+
 
