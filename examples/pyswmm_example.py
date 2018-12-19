@@ -4,7 +4,8 @@ The purpose of this example is to understand the parameters that at each timeste
 * control the pipe network
 * be derived from the pipe network
 
-It is our hope to eventually couple pyswmm with anuga through these parameters to create a better open source 2D urban flood model.
+It is our hope to eventually couple pyswmm with anuga through these parameters 
+to create a better open source 2D urban flood model.
 
 Stephen Roberts, Petar Milevski, Rudy van Drie, Ole Nielsen
 December 2018 
@@ -26,7 +27,6 @@ def run_swmm():
     nodes = [Nodes(sim)[names] for names in node_names]
     links = [Links(sim)[names] for names in link_names]
     
- 
     # type, area, length, orifice_coeff, free_weir_coeff, submerged_weir_coeff
     opening0 = nodes[0].create_opening(4, 1.0, 1.0, 0.6, 1.6, 1.0)
 
@@ -55,7 +55,6 @@ def run_swmm():
         if ind == 15:
             break    # Output from first 15 steps in enough
             
-        
         print 70 * "="
         print 'STEP ', ind
         
@@ -64,9 +63,9 @@ def run_swmm():
         print 'Current time', sim.current_time
         print 'Elapsed time', elapsed_time
         print 'Advance seconds', sim._advance_seconds
-        print 'Opening 0 flow:', opening0.flow
+        print 'Opening 0 flow', opening0.flow
         
-        for i,j in enumerate(nodes):
+        for i, j in enumerate(nodes):
             print 50*"="
             jstr = node_names[i]
             print jstr+' total_inflow', j.total_inflow
@@ -76,22 +75,22 @@ def run_swmm():
             print jstr+' coupling_area', j.coupling_area
             print jstr+' overland_depth', j.overland_depth
             print jstr+' number of openings', j.number_of_openings
-            print jstr+' depth' , j.depth
-            print jstr+' volume' , j.volume
+            print jstr+' depth', j.depth
+            print jstr+' volume', j.volume
             print jstr+' surcharge depth', j.surcharge_depth
-            print jstr+' flooding' , j.flooding
-            print jstr+' lateral_inflow' , j.lateral_inflow
+            print jstr+' flooding', j.flooding
+            print jstr+' lateral_inflow', j.lateral_inflow
  
-        for i,l in enumerate(links):
+        for i, l in enumerate(links):
             print 50*"="
             lstr = link_names[i]
             print lstr+' link flow', l.flow
             
             print lstr+' Area', l.ds_xsection_area   
-            print lstr+' Froude ', l.froude
-            print lstr+' Depth ', l.depth
+            print lstr+' Froude', l.froude
+            print lstr+' Depth', l.depth
             print lstr+' Flow limit' , l.flow_limit
-            print lstr+' volume' , l.volume
+            print lstr+' volume', l.volume
  
       
     print 70 * "="  
@@ -101,8 +100,6 @@ def run_swmm():
     
     sim.report()
     sim.close()
-    
-    print ''
         
 run_swmm()
 
